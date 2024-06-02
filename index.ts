@@ -1,13 +1,8 @@
 import { Client, Events, GatewayIntentBits } from "discord.js";
 import { process_timeout } from "./events/timeout";
 
-type Admin = {};
-type Protected = {};
-
-
 const client = new Client({
   intents: [
-    GatewayIntentBits.DirectMessages,
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
