@@ -1,0 +1,12 @@
+version: "3.1"
+
+services:
+  diana:
+    build: .
+    env_file: .env
+    logging:
+      options:
+        max-size: "1m"
+        max-file: 1
+    restart: unless-stopped
+
