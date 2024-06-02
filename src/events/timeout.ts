@@ -1,4 +1,4 @@
-import { Guild, GuildMember, Message, TimestampStyles } from "discord.js";
+import { GuildMember, Message } from "discord.js";
 import { GATEWAY_TOKEN, GATEWAY_URL, MATCH_PATTERN } from "../config/config";
 
 // snake_case is expected for all requests.
