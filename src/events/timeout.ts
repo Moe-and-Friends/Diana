@@ -4,9 +4,11 @@ import { GATEWAY_TOKEN, GATEWAY_URL, MATCH_PATTERN } from "../config/config";
 // snake_case is expected for all requests.
 
 interface GatewayMemberRequest {
+  username: string;
   user_id: string;
   user_nickname: string | null;
-  user_display_name: string;
+  user_display_name: string; // Nickname if exists, otherwise global name
+  user_global_name: string | null; // This is a global-level display (non-unique) name
   user_roles: string[];
 }
 
@@ -75,9 +77,11 @@ function createGatewayDiscordRequest(
     member: GuildMember
   ): GatewayMemberRequest {
     return {
+      username: member.user.username,
       user_id: member.id,
       user_nickname: member.nickname,
       user_display_name: member.displayName,
+      user_global_name: member.user.globalName,
       user_roles: member.roles.cache.map((role) => role.id),
     };
   }
